@@ -1,0 +1,57 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+
+    <div class="container">
+
+        <%- include('../partials/menu.ejs') %>
+
+        <div class="card">
+
+            <div class="card-header">
+                <h3>Cadastro de Cliente</h3>
+            </div>
+
+            <div class="card-body">
+
+                <form action="http://localhost:3000/cadastrarCPF" method="post">
+                                                            
+                    <%# Cadastro de CPF %>
+                    <label for="cpf"></label>
+                    <input class="form-control" type="text" 
+                    name="cpf_cliente" id="cpf_cliente"
+                    placeholder="CPF">
+                
+                    <%# Cadastro de EMAIL %>
+                    <label for="email"></label>
+                    <input class="form-control" type="text" 
+                    name="email_cliente" id="email_cliente"
+                    placeholder="Email">
+                                    
+                    <%# Cadastro de TELEFONE %>
+                    <label for="telefone"></label>
+                    <input class="form-control" type="text" 
+                    name="telefone_cliente" id="telefone_cliente"
+                    placeholder="Telefone">
+                
+                    <%# Cadastro de ENDEREÇO %>
+                    <label for="endereco"></label>
+                    <input class="form-control" type="text" 
+                    name="endereco_cliente" id="endereco_cliente"
+                    placeholder="Endereço">
+
+                    <button class="btn btn-success mt-2">CADASTRAR</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<%- include('../partials/footer.ejs') %>
+
+</html>
