@@ -20,11 +20,11 @@ app.get('/', (req, res)=>{
 
 // Cadastramento
 app.get('/cliente', (req, res)=>{
-    res.render('cliente/index');
+    res.render('cliente/cadastrarCliente');
 });
 
 // Listagem de cliente
-app.get('/listagemCliente', (req, res)=>{
+app.get('/listarCliente', (req, res)=>{
    
     // Configuração da requisição back-end via axios
 
@@ -40,7 +40,7 @@ app.get('/listagemCliente', (req, res)=>{
     .then((response)=>{
         console.log(response.data);
         let clientes = response.data;
-        res.render('cliente/listagemCliente', {clientes});
+        res.render('cliente/listarCliente', {clientes});
 
     });
 });
@@ -63,21 +63,18 @@ app.get('/editarCliente/:cod_cliente', (req, res)=>{
 
 });
 
-app.post('/editarCategoria', (req, res)=>{
+app.post('/editarCliente', (req, res)=>{
 
-    let urlEditar = 'http://localhost:3000/alterarCategoria';
+    let urlEditar = 'http://localhost:3000/alterarCliente';
 
     axios.put(urlEditar, req.body)
     .then((response)=>{
-        res.send('dado alterado');
+        res.send('Os dados foram atualizados');
     });
-
-    // console.log(req.body);
 
 })
 
-
-/* FIM DAS ROTAS DE CATEGORIA */
+// -------------------------------------------------------------------------------------------------
 
 app.listen(3001, ()=>{
     console.log("Servidor na porta - http://localhost:3001");
