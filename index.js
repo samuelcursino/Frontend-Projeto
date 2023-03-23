@@ -46,11 +46,11 @@ app.get('/listarCliente', (req, res)=>{
 });
 
 //Edição
-app.get('/editarCliente/:cod_cliente', (req, res)=>{
+app.get('/editarCliente/:cpf', (req, res)=>{
     
-    let {cod_cliente} = req.params;
+    let {cpf} = req.params;
 
-    urlListarClientePK = `http://localhost:3000/listarClientePK/${cod_cliente}`;
+    urlListarClientePK = `http://localhost:3000/listarClientePK/${cpf}`;
 
     // Chamada do axios para a rota do back-end
     axios.get(urlListarClientePK)

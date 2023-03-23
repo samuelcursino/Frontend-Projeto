@@ -10,22 +10,39 @@
 
             <div class="card-header">
                 <h3> Editar Cliente</h3>
-                <%= cliente.data.cpf_cliente %>
-                <%= cliente.data.email_cliente %>
-                <%= cliente.data.telefone_cliente %>
-                <%= cliente.data.endereco_cliente %>
+                <%= clientes.data.cpf %>
+                <%= clientes.data.email %>
+                <%= clientes.data.telefone %>
+                <%= clientes.data.endereco %>
             </div>
 
             <div class="card-body">
 
-                <form action="/editarCategoria" method="post">
+                <form action="/editarCliente" method="post">
 
-                    <label for="nome_categoria"></label>
+                    <label for="cpf"></label>
                     <input class="form-control" type="text" 
-                    name="nome_categoria" id="nome_categoria"
-                    placeholder="<%= categoria.data.nome_categoria %>">
+                    name="cpf" id="cpf"
+                    placeholder="<%= cliente.data.cpf %>">
+                    <input type="hidden" name="cpf" value="<%= cliente.data.cpf %>">
 
-                    <input type="hidden" name="cod_categoria" value="<%= categoria.data.cod_categoria %>">
+                    <label for="email"></label>
+                    <input class="form-control" type="text" 
+                    name="email" id="email"
+                    placeholder="<%= cliente.data.email %>">
+                    <input type="hidden" name="email" value="<%= cliente.data.email %>">
+
+                    <label for="telefone"></label>
+                    <input class="form-control" type="text" 
+                    name="telefone" id="cpf"
+                    placeholder="<%= cliente.data.telefone %>">
+                    <input type="hidden" name="telefone" value="<%= cliente.data.telefone %>">
+
+                    <label for="endereco"></label>
+                    <input class="form-control" type="text" 
+                    name="endereco" id="cpf"
+                    placeholder="<%= cliente.data.endereco %>">
+                    <input type="hidden" name="endereco" value="<%= cliente.data.endereco %>">
 
                     <button class="btn btn-success mt-2">CADASTRAR</button>
 
