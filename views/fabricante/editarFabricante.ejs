@@ -1,0 +1,61 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+
+    <div class="container">
+
+        <%- include('../partials/menu.ejs') %>
+
+        <div class="card">
+
+            <div class="card-header">
+                <h3> Editar Fabricante</h3>
+                <%= fabricantes.data.id_fabricante %>
+                <%= fabricantes.data.email %>
+                <%= fabricantes.data.telefone %>
+                <%= fabricantes.data.endereco %>
+            </div>
+
+            <div class="card-body">
+
+                <form action="/editarFabricante" method="post">
+
+                    <label for="id_fabricante"></label>
+                    <input class="form-control" type="text" 
+                    name="id_fabricante" id="id_fabricante"
+                    placeholder="<%= cliente.data.id_fabricante %>">
+                    <input type="hidden" name="id_fabricante" value="<%= cliente.data.id_fabricante %>">
+
+                    <label for="email"></label>
+                    <input class="form-control" type="text" 
+                    name="email" id="email"
+                    placeholder="<%= fabricante.data.email %>">
+                    <input type="hidden" name="email" value="<%= fabricante.data.email %>">
+
+                    <label for="telefone"></label>
+                    <input class="form-control" type="text" 
+                    name="telefone" id="cpf"
+                    placeholder="<%= fabricante.data.telefone %>">
+                    <input type="hidden" name="telefone" value="<%= fabricante.data.telefone %>">
+
+                    <label for="endereco"></label>
+                    <input class="form-control" type="text" 
+                    name="endereco" id="cpf"
+                    placeholder="<%= fabricante.data.endereco %>">
+                    <input type="hidden" name="endereco" value="<%= fabricante.data.endereco %>">
+
+                    <button class="btn btn-success mt-2">CADASTRAR</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<%- include('../partials/footer.ejs') %>
+
+</html>

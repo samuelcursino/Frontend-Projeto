@@ -106,7 +106,7 @@ app.get('/listarFabricante', (req, res)=>{
 });
 
 //Edição
-app.get('/editarFabricante/:cpf', (req, res)=>{
+app.get('/editarFabricante/:id_fabricante', (req, res)=>{
     
     let {id_fabricante} = req.params;
 
