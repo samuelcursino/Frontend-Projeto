@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs') %>
+
+
+    <div class="container">
+
+        <%- include('../partials/menu.ejs') %>
+
+        <div class="card">
+            <div class="card-header">Listagem de Fabricantes</div>
+        </div>
+
+        <%
+        fabricantes.data.forEach(fabricantes=>{
+        %>
+
+            <div class="card mt-2 p-1">
+
+                <div class="card-body">                    
+                    <P>Identificação: <%= fabricantes.id_fabricante %></P>
+                    <p>Email: <%= fabricantes.email %></p>
+                    <p>Telefone: <%= fabricantes.telefone %></p>
+                    <p>Endereço: <%= fabricantes.endereco %></p>
+                </div>
+
+                <div class="btn-group mr-2">
+                    <a href="/editarFabricantes/<%= fabricantes.cpf %>" class="btn btn-success btn-sm mr-2 ml-2">Editar</a>
+                    <a href="#" class="btn btn-danger btn-sm mr-2 ml-2">Excluir</a>
+                </div>
+
+            </div>
+
+
+        <% }) %>  
+
+    </div>
+
+<%- include('../partials/footer.ejs') %>
+
+</html>

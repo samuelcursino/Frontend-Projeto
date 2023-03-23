@@ -1,0 +1,51 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+
+    <div class="container">
+
+        <%- include('../partials/menu.ejs') %>
+
+        <div class="card">
+
+            <div class="card-header">
+                <h3>Cadastro de fabricante</h3>
+            </div>
+
+            <div class="card-body">
+
+                <form action="http://localhost:3000/cadastrarFabricante" method="post">
+                                
+                    <%# Cadastro de NOME %>
+                    <label for="nome"></label>
+                    <input class="form-control" type="text" 
+                    name="nome" id="nome"
+                    placeholder="Nome">
+
+                    <%# Cadastro de EMAIL %>
+                    <label for="email"></label>
+                    <input class="form-control" type="text" 
+                    name="email" id="email"
+                    placeholder="Email">
+                                    
+                    <%# Cadastro de TELEFONE %>
+                    <label for="telefone"></label>
+                    <input class="form-control" type="text" 
+                    name="telefone" id="telefone"
+                    placeholder="Telefone">
+
+                    <button class="btn btn-success mt-2">CADASTRAR</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<%- include('../partials/footer.ejs') %>
+
+</html>

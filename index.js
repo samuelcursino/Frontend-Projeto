@@ -76,6 +76,67 @@ app.post('/editarCliente', (req, res)=>{
 
 // -------------------------------------------------------------------------------------------------
 
+// ------------------------- INICIO DAS ROTAS DE FABRICANTE ---------------------------------
+
+// Cadastramento
+app.get('/fabricante', (req, res)=>{
+    res.render('fabricante/cadastrarFabricante');
+});
+
+// Listagem de fabricante
+app.get('/listarFabricante', (req, res)=>{
+   
+    // Configuração da requisição back-end via axios
+
+   // Rota do Back-end
+    const urlListarFabricante = 'http://localhost:3000/listarFabricante';
+
+    // Chamada do axios para a rota do back-end
+    // Parametros do verbo:
+    // 1- Rota
+    // 2- .then de tratamento da resposta
+
+    axios.get(urlListarFabricante)
+    .then((response)=>{
+        console.log(response.data);
+        let fabricantes = response.data;
+        res.render('fabricante/listarFabricante', {fabricantes});
+
+    });
+});
+
+//Edição
+app.get('/editarFabricante/:cpf', (req, res)=>{
+    
+    let {id_fabricante} = req.params;
+
+    urlListarFabricantePK = `http://localhost:3000/listarFabricantePK/${id_fabricante}`;
+
+    // Chamada do axios para a rota do back-end
+    axios.get(urlListarFabricantePK)
+        .then((response)=>{
+            let fabricante = response.data;
+            // console.log(categoria.data);
+            res.render('cliente/editarFabricante.ejs', {fabricante});
+
+        });
+
+});
+
+app.post('/editarFabricante', (req, res)=>{
+
+    let urlEditar = 'http://localhost:3000/alterarFabricante';
+
+    axios.put(urlEditar, req.body)
+    .then((response)=>{
+        res.send('Os dados foram atualizados');
+    });
+
+})
+
+// -------------------------------------------------------------------------------------------------
+
+
 app.listen(3001, ()=>{
     console.log("Servidor na porta - http://localhost:3001");
 });
