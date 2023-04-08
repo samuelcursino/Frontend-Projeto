@@ -21,6 +21,7 @@ app.get('/', (req, res)=>{
 // Cadastramento
 app.get('/cliente', (req, res)=>{
     res.render('cliente/cadastrarCliente');
+    
 });
 
 // Listagem de cliente
@@ -46,7 +47,7 @@ app.get('/listarCliente', (req, res)=>{
 });
 
 //Edição
-app.get('/editarCliente/:cpf', (req, res)=>{
+app.get('/editarClientes/:cpf', (req, res)=>{
     
     let {cpf} = req.params;
 
@@ -55,21 +56,35 @@ app.get('/editarCliente/:cpf', (req, res)=>{
     // Chamada do axios para a rota do back-end
     axios.get(urlListarClientePK)
         .then((response)=>{
-            let cliente = response.data;
-            // console.log(categoria.data);
-            res.render('cliente/editarCliente.ejs', {cliente});
+            let clientes = response.data;
+            res.render('cliente/editarCliente.ejs', {clientes});
 
         });
 
 });
 
-app.post('/editarCliente', (req, res)=>{
+app.post('/editarClientes', (req, res)=>{
 
-    let urlEditar = 'http://localhost:3000/alterarCliente';
+    let urlEditarCliente = 'http://localhost:3000/alterarCliente';
 
-    axios.put(urlEditar, req.body)
+    axios.put(urlEditarCliente, req.body)
     .then((response)=>{
-        res.send('Os dados foram atualizados');
+        res.redirect('/listarCliente');
+    });
+
+// Exclusão
+
+    app.get('/excluirClientes/:cpf', (req, res)=>{
+
+        let {cpf} = req.params;
+    
+        const urlExcluirCliente = `http://localhost:3000/excluirCliente/${cpf}`
+    
+        axios.delete(urlExcluirCliente)
+        .then((response)=>{
+            res.redirect('/listarCliente');
+        });
+    
     });
 
 })
@@ -129,10 +144,25 @@ app.post('/editarFabricante', (req, res)=>{
 
     axios.put(urlEditar, req.body)
     .then((response)=>{
-        res.send('Os dados foram atualizados');
+        res.redirect('/listarFabricante');
     });
 
 })
+
+//Exclusão
+
+app.get('/excluirFabricante/:cod_fabricante', (req, res)=>{
+
+    let {cod_fabricante} = req.params;
+
+    const urlExcluirFabricante = `http://localhost:3000/excluirFabricante/${cod_fabricante}`
+
+    axios.delete(urlExcluirFabricante)
+    .then((response)=>{
+        res.redirect('/listarFabricante');
+    });
+
+});
 
 // -------------------------------------------------------------------------------------------------
 

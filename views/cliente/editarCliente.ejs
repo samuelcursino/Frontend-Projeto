@@ -6,49 +6,49 @@
 
         <%- include('../partials/menu.ejs') %>
 
-        <div class="card">
+            <div class="card">
 
-            <div class="card-header">
-                <h3> Editar Cliente</h3>
-                <%= clientes.data.cpf %>
-                <%= clientes.data.email %>
-                <%= clientes.data.telefone %>
-                <%= clientes.data.endereco %>
+                <div class="card-header">
+                    <h3> Editar Cliente</h3>
+                    <p>CPF: <%= clientes.data.cpf %></p>
+                    <p>Email: <%= clientes.data.email %></p>
+                    <p>Telefone: <%= clientes.data.telefone %></p>
+                    <p>Endereço: <%= clientes.data.endereco %></p>
+                </div>
+
+                <div class="card-body">
+
+                    <form action="/editarClientes" method="post">
+
+                        <label for="cpf"></label>
+                        <input class="form-control" type="text" 
+                        name="cpf" id="cpf"
+                        placeholder="CPF NÃO PODE SER EDITADO">
+
+                        <label for="email"></label>
+                        <input class="form-control" type="text" 
+                        name="email" id="email"
+                        placeholder="<%= clientes.data.email %>">
+
+                        <label for="telefone"></label>
+                        <input class="form-control" type="text" 
+                        name="telefone" id="telefone"
+                        placeholder="<%= clientes.data.telefone %>">
+
+                        <label for="endereco"></label>
+                        <input class="form-control" type="text" 
+                        name="endereco" id="endereco"
+                        placeholder="<%= clientes.data.endereco %>">
+
+                        <input type="hidden" name="cpf" value="<%= clientes.data.cpf %>">
+
+                        <button class="btn btn-success mt-2">EDITAR</button>
+
+                    </form>
+
+                </div>
+
             </div>
-
-            <div class="card-body">
-
-                <form action="/editarCliente" method="post">
-
-                    <label for="cpf"></label>
-                    <input class="form-control" type="text" 
-                    name="cpf" id="cpf"
-                    placeholder="<%= cliente.data.cpf %>">
-
-                    <label for="email"></label>
-                    <input class="form-control" type="text" 
-                    name="email" id="email"
-                    placeholder="<%= cliente.data.email %>">
-
-                    <label for="telefone"></label>
-                    <input class="form-control" type="text" 
-                    name="telefone" id="telefone"
-                    placeholder="<%= cliente.data.telefone %>">
-
-                    <label for="endereco"></label>
-                    <input class="form-control" type="text" 
-                    name="endereco" id="endereco"
-                    placeholder="<%= cliente.data.endereco %>">
-
-                    <input type="hidden" name="cpf" value="<%= cliente.data.cpf %>">
-
-                    <button class="btn btn-success mt-2">CADASTRAR</button>
-
-                </form>
-
-            </div>
-
-        </div>
 
     </div>
 
