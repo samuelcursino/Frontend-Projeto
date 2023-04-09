@@ -121,7 +121,7 @@ app.get('/listarFabricante', (req, res)=>{
 });
 
 //Edição
-app.get('/editarFabricante/:id_fabricante', (req, res)=>{
+app.get('/editarFabricantes/:id_fabricante', (req, res)=>{
     
     let {id_fabricante} = req.params;
 
@@ -130,9 +130,8 @@ app.get('/editarFabricante/:id_fabricante', (req, res)=>{
     // Chamada do axios para a rota do back-end
     axios.get(urlListarFabricantePK)
         .then((response)=>{
-            let fabricante = response.data;
-            // console.log(categoria.data);
-            res.render('cliente/editarFabricante.ejs', {fabricante});
+            let fabricantes = response.data;
+            res.render('fabricante/editarFabricante.ejs', {fabricantes});
 
         });
 
@@ -140,9 +139,9 @@ app.get('/editarFabricante/:id_fabricante', (req, res)=>{
 
 app.post('/editarFabricante', (req, res)=>{
 
-    let urlEditar = 'http://localhost:3000/alterarFabricante';
+    let urlEditarFabricante = 'http://localhost:3000/alterarFabricante';
 
-    axios.put(urlEditar, req.body)
+    axios.put(urlEditarFabricante, req.body)
     .then((response)=>{
         res.redirect('/listarFabricante');
     });
@@ -151,11 +150,11 @@ app.post('/editarFabricante', (req, res)=>{
 
 //Exclusão
 
-app.get('/excluirFabricante/:cod_fabricante', (req, res)=>{
+app.get('/excluirFabricantes/:id_fabricante', (req, res)=>{
 
-    let {cod_fabricante} = req.params;
+    let {id_fabricante} = req.params;
 
-    const urlExcluirFabricante = `http://localhost:3000/excluirFabricante/${cod_fabricante}`
+    const urlExcluirFabricante = `http://localhost:3000/excluirFabricante/${id_fabricante}`
 
     axios.delete(urlExcluirFabricante)
     .then((response)=>{

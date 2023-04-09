@@ -10,10 +10,10 @@
 
             <div class="card-header">
                 <h3> Editar Fabricante</h3>
-                <%= fabricantes.data.id_fabricante %>
-                <%= fabricantes.data.email %>
-                <%= fabricantes.data.telefone %>
-                <%= fabricantes.data.endereco %>
+                <p>Id: <%= fabricantes.data.id_fabricante %></p>
+                <p>Email: <%= fabricantes.data.email %></p>
+                <p>Telefone: <%= fabricantes.data.telefone %></p>
+                <p>Endereço: <%= fabricantes.data.endereco %></p>
             </div>
 
             <div class="card-body">
@@ -23,28 +23,26 @@
                     <label for="id_fabricante"></label>
                     <input class="form-control" type="text" 
                     name="id_fabricante" id="id_fabricante"
-                    placeholder="<%= cliente.data.id_fabricante %>">
-                    <input type="hidden" name="id_fabricante" value="<%= cliente.data.id_fabricante %>">
+                    placeholder="IDENTIFICAÇÃO NÃO PODE SER EDITADA">
+
+                    <label for="nome"></label>
+                    <input class="form-control" type="text" 
+                    name="nome" id="nome"
+                    placeholder="<%= fabricantes.data.nome %>">
 
                     <label for="email"></label>
                     <input class="form-control" type="text" 
                     name="email" id="email"
-                    placeholder="<%= fabricante.data.email %>">
-                    <input type="hidden" name="email" value="<%= fabricante.data.email %>">
+                    placeholder="<%= fabricantes.data.email %>">
 
                     <label for="telefone"></label>
                     <input class="form-control" type="text" 
-                    name="telefone" id="cpf"
-                    placeholder="<%= fabricante.data.telefone %>">
-                    <input type="hidden" name="telefone" value="<%= fabricante.data.telefone %>">
+                    name="telefone" id="telefone"
+                    placeholder="<%= fabricantes.data.telefone %>">                    
 
-                    <label for="endereco"></label>
-                    <input class="form-control" type="text" 
-                    name="endereco" id="cpf"
-                    placeholder="<%= fabricante.data.endereco %>">
-                    <input type="hidden" name="endereco" value="<%= fabricante.data.endereco %>">
+                    <input type="hidden" name="id_fabricante" value="<%= fabricantes.data.id_fabricante %>">
 
-                    <button class="btn btn-success mt-2">CADASTRAR</button>
+                    <button class="btn btn-success mt-2">Editar</button>
 
                 </form>
 
